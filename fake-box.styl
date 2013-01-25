@@ -1,0 +1,22 @@
+@import nib
+.fake-box
+  overflow: hidden
+  //position: absolute
+  .wrap
+    position: absolute
+  .face
+    position: absolute
+    width: 100%
+    height: 100%
+    background-color: #F0EEED
+    z-index: 1
+    top 0
+    left 0
+  .panel
+    position: absolute
+    transform-origin: 0 0
+    transform: rotate(-45deg)
+    &.right
+      background: #dfdfdf
+    &.bottom
+      background: #d0d0d0

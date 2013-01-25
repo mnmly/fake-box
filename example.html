@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Fake Box</title>
+    <link rel="stylesheet" href="build/build.css" type="text/css" media="all" />
+    <style type="text/css" media="all">
+      #c{
+        margin: 0 auto;
+        width: 350px;
+        padding-left: 130px;
+        padding-top: 270px;
+      }
+      .fake-box{
+        float: left;
+        margin-left: -50px;
+      }
+      .wrap{
+        -webkit-transition: .5s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+           -moz-transition: .5s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+                transition: .5s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+      }
+
+      footer { position: absolute; bottom: 0; width: 100%; text-align: center; }
+      footer small{ margin-top: 70px; margin-bottom: 70px; font-size: .9em; display: block; font-family: monospace; text-align: center; color: hsl(0, 0%, 40%); }
+      footer small a{ text-decoration: none; font-weight: bold; color: hsl(0, 0%, 20%); }
+    </style>
+  </head>
+  <body>
+    <div id="c"></div>
+    <footer>
+      <small>by <a href="http://mnmly.com" target="_blank">mnmly</a> / grab it on <a href="http://github.com/mnmly/fake-box/">github</a></small>
+    </footer>
+    <script src="build/build.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+      var FakeBox   = require( 'fake-box' ),
+          boxes     = [],
+          count     = 0,
+          canvas    = document.getElementById('c'),
+          valueList = [ [ 20, 40, 60, 80, 100 ],
+                        [ 10, 40, 60, 40, 10 ],
+                        [ 40, 40, 40, 40, 40 ],
+                        [ 100, 80, 60, 40, 20 ],
+                        [ 0, 0, 0, 0, 0 ],
+                        ];
+
+      for ( var i = 0; i < valueList[0].length; i ++){
+        var fakebox = new FakeBox( 20, 100 );
+        fakebox.el.style.left = 150 + i * 60 + 'px';
+        fakebox.wrap.style.webkitTransitionDelay = i * 100 + 'ms';
+        boxes.push( fakebox );
+        canvas.appendChild( fakebox.el );
+      }
+      
+      setInterval( function(){
+        if( count === valueList.length ) count = 0; 
+        var values = valueList[count++];
+        values.forEach( function( v, i ){
+          boxes[i].update( v );
+        } );
+      }, 1500 );
+    </script>
+  </body>
+</html>

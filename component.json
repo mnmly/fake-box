@@ -1,0 +1,19 @@
+{
+  "name": "fake-box",
+  "repo": "mnmly/fake-box",
+  "description": "Fake Box",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/domify": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "fake-box.css"
+  ]
+}

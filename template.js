@@ -1,0 +1,1 @@
+module.exports = '<div class="fake-box">\n  <div class="wrap">\n    <div class="face"></div>\n    <div class="panel right"></div>\n    <div class="panel bottom"></div>\n  </div>\n</div>\n';
