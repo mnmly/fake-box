@@ -1,0 +1,34 @@
+.fake-box {
+  overflow: hidden;
+}
+.fake-box .wrap {
+  position: absolute;
+}
+.fake-box .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #f0eeed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+.fake-box .panel {
+  position: absolute;
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.fake-box .panel.right {
+  background: #dfdfdf;
+}
+.fake-box .panel.bottom {
+  background: #d0d0d0;
+}
