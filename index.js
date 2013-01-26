@@ -31,9 +31,10 @@ function FakeBox( size, spread ) {
   this.size   = size || 100;
   this.spread = spread || 300;
   this.el     = domify( template )[0];
+  this.percent = 0;
   this.wrap   = this.el.querySelector( '.wrap' );
   this.setupElements();
-  this.update( 0 );
+  this.update( this.percent );
 }
 
 /**
@@ -69,6 +70,7 @@ FakeBox.prototype.setupElements = function() {
 
 FakeBox.prototype.update = function( percent ) {
   var shift = Math.round( this.spread * ( 100 - percent ) / 100 );
+  this.percent = percent;
   this.translate( this.wrap, shift, shift );
 };
 
