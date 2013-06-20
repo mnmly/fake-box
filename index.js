@@ -30,7 +30,7 @@ function FakeBox( size, spread ) {
   if ( !( this instanceof FakeBox) ) return new FakeBox( size, spread );
   this.size   = size || 100;
   this.spread = spread || 300;
-  this.el     = domify( template )[0];
+  this.el     = domify( template );
   this.percent = 0;
   this.wrap   = this.el.querySelector( '.wrap' );
   this.setupElements();
@@ -44,7 +44,7 @@ function FakeBox( size, spread ) {
  */
 
 FakeBox.prototype.setupElements = function() {
-  
+
   this.el.style.width   = this.el.style.height   = this.size + this.spread + 'px';
   this.wrap.style.width = this.wrap.style.height = this.size + 'px';
   this.translate( this.el, -this.spread, -this.spread );
@@ -86,6 +86,6 @@ FakeBox.prototype.update = function( percent ) {
 FakeBox.prototype.translate = function( el, x, y ) {
   el.style.webkitTransform =
      el.style.mozTransform =
-      el.style.msTransform = 
+      el.style.msTransform =
         el.style.transform = 'translate3d( ' + x + 'px, ' + y + 'px, 0 )';
 };
